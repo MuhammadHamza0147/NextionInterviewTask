@@ -19,6 +19,24 @@
 <script src="{{asset('assets/js/dlabnav-init.js')}}"></script>
 
 
+<script src="{{asset('assets/vendor/clockpicker/js/bootstrap-clockpicker.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-asColor/jquery-asColor.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-asGradient/jquery-asGradient.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-asColorPicker/js/jquery-asColorPicker.min.js')}}"></script>
+<script src="{{asset('assets/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
+<script src="{{asset('assets/vendor/pickadate/picker.js')}}"></script>
+<script src="{{asset('assets/vendor/pickadate/picker.time.js')}}"></script>
+<script src="{{asset('assets/vendor/pickadate/picker.date.js')}}"></script>
+<script src="{{asset('assets/js/plugins-init/bs-daterange-picker-init.js')}}"></script>
+<script src="{{asset('assets/js/plugins-init/clock-picker-init.js')}}"></script>
+<script src="{{asset('assets/js/plugins-init/jquery-asColorPicker.init.js')}}"></script>
+<script src="{{asset('assets/js/plugins-init/material-date-picker-init.js')}}"></script>
+<script src="{{asset('assets/js/plugins-init/pickadate-init.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
+<script src="{{asset('assets/vendor/toastr/js/toastr.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins-init/toastr-init.js')}}"></script>
+<script src="{{asset('assets/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins-init/datatables.init.js')}}"></script>
 <script>
     function JobickCarousel()
 			{

@@ -6,7 +6,7 @@
 Toastr
 *******************/
 
-    $("#toastr-success-top-right").on("click", function () {
+        $("#toastr-success-top-right").on("click", function () {
                 toastr.success("This Is Success Message", "Top Right", {
                     timeOut: 500000000,
                     closeButton: !0,

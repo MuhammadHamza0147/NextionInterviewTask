@@ -16,7 +16,9 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
                                     <div class="text-center mb-3">
-                                        <a href=""><img src="{{asset('assets/images/logo-full.png')}}" alt=""></a>
+                                        <a href="{{route('home')}}">
+                                            <h2 class="fw-bold">Mr.<span style="color: #F93A0B">Haroon</span></h2>
+                                        </a>
                                     </div>
                                     <h4 class="text-center mb-4">Sign up your account</h4>
                                     <form action="{{ route('register') }}" method="POST">

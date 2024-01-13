@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     @include('Dashboard.component.head')
+    @yield('head')
+
 </head>
 <body>
     <div id="preloader">
@@ -10,7 +12,6 @@
 			<div></div>
 		</div>
     </div>
-
     <div id="main-wrapper">
 
         @include('Dashboard.component.navigation')
@@ -24,6 +25,6 @@
 
 	</div>
     @include('Dashboard.component.script')
-
+    @yield('script')
 </body>
 </html>

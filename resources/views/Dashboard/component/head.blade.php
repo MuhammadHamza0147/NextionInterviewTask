@@ -7,9 +7,6 @@
 <meta property="og:image" content="https://jobick.dexignlab.com/xhtml/social-image.png" />
 <meta name="format-detection" content="telephone=no">
 
-<!-- PAGE TITLE HERE -->
-<title>Jobick Job Admin</title>
-
 <!-- FAVICONS ICON -->
 <link rel="shortcut icon" type="image/png" href="{{asset('assets/images/favicon.png')}}" />
 <link href="{{asset('assets/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
@@ -18,3 +15,23 @@
 
 <!-- Style css -->
 <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+
+<link href="{{asset('assets/vendor/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+<link href="{{asset('assets/vendor/clockpicker/css/bootstrap-clockpicker.min.css')}}" rel="stylesheet">
+<link href="{{asset('assets/vendor/jquery-asColorPicker/css/asColorPicker.min.css')}}" rel="stylesheet">
+<link href="{{asset('assets/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet">
+
+<link rel="stylesheet" href="{{asset('assets/vendor/pickadate/themes/default.css')}}">
+<link rel="stylesheet" href="{{asset('assets/vendor/pickadate/themes/default.date.css')}}">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="{{asset('assets/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
+<link href="{{asset('assets/vendor/lightgallery/css/lightgallery.min.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="{{asset('assets/vendor/toastr/css/toastr.min.css')}}">
+<link href="{{asset('assets/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+
+<style>
+    .mm-active i.fa{
+        color: #F93A0B !important;
+        font-weight: 300;
+    }
+</style>

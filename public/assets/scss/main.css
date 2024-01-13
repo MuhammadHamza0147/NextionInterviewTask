@@ -19546,10 +19546,10 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .photo-content {
   position: relative; }
   .photo-content .cover-photo {
-    background: url(../images/profile/cover.jpg);
+    background: url(../images/companyLogo.png);
     background-size: cover;
     background-position: center;
-    min-height: 15.625rem;
+    min-height: 9rem;
     width: 100%; }
 
 .profile .profile-photo {
