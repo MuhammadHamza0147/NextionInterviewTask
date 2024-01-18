@@ -1,6 +1,12 @@
 ## Interview Task Done By
 - **Muhammad Haroon**
-  
+
+## Features
+- **Auth**
+- **User Manage Profile**
+- **API Calls**
+- **Sync API**
+
 ## Laravel Version
 - **Laravel Version :** 10.10
 
