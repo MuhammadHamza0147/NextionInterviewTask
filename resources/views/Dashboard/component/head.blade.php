@@ -29,7 +29,25 @@
 <link rel="stylesheet" href="{{asset('assets/vendor/toastr/css/toastr.min.css')}}">
 <link href="{{asset('assets/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 
+{{-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap" rel="stylesheet">
+@if (app()->getLocale() == 'ur')
+    <style>
+        body{
+            font-family: "Noto Nastaliq Urdu", serif !important;
+            font-optical-sizing: auto;
+            font-weight: 300 !important;
+            font-style: normal;
+        } 
+    </style>       
+@endif --}}
 <style>
+    
+    body::-webkit-scrollbar , textarea::-webkit-scrollbar {
+        width: 0em;
+    }
+    
     .mm-active i.fa{
         color: #F93A0B !important;
         font-weight: 300;

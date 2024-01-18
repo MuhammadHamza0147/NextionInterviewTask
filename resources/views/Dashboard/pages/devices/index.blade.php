@@ -1,7 +1,7 @@
 @extends('Dashboard.layout.index')
 @section('head')
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>Device</title>
+    <title>{{__('trans.devices')}}</title>
     <style>
         .loaders-container {
             display: none;
@@ -41,8 +41,8 @@
 <div class="container-fluid">
     <div class="row page-titles">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active"><a href="{{route('home')}}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Devices</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('home')}}">{{__('trans.dashboard')}}</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">{{__('trans.devices')}}</a></li>
         </ol>
     </div>
     @include('Dashboard.component.alert')
@@ -53,11 +53,11 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4 class="card-title">Devices List</h4>
+                                <h4 class="card-title">{{__('trans.devices')}} {{__('trans.list')}}</h4>
                             </div>
                             <div class="col-md-6 text-right">
-                                <button type="button" id="SyncAPI" class="btn btn-info mb-2"> <i class="fa fa-download"></i> Sync Device API</button>
-                                <button type="button" id="HitAPI" class="btn btn-danger mb-2"> <i class="fa fa-globe"></i> Hit Device API</button>
+                                <button type="button" id="SyncAPI" class="btn btn-info mb-2"> <i class="fa fa-download"></i> {{__('trans.sync')}} {{__('trans.devices')}} {{__('trans.api')}}</button>
+                                <button type="button" id="HitAPI" class="btn btn-danger mb-2"> <i class="fa fa-globe"></i> {{__('trans.defects')}} {{__('trans.api')}}</button>
                             </div>
                         </div>
                     </div>
@@ -70,10 +70,10 @@
                         <table id="example4" class="display" style="min-width: 845px">
                             <thead>
                                 <tr>
-                                    <th>Sr#</th>
-                                    <th>Brand</th>
-                                    <th>Device Name</th>
-                                    <th>Action</th>
+                                    <th>{{__('trans.sr#')}}</th>
+                                    <th>{{__('trans.brand')}}</th>
+                                    <th>{{__('trans.devices')}} {{__('trans.name')}}</th>
+                                    <th>{{__('trans.action')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -81,9 +81,9 @@
                                 @if(isset($devices))
                                     @foreach ($devices as $item)
                                         <tr>
-                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="Click Here To Edit Record" onclick='getEditData({{$item->id ?? "1"}},"{{$item->device_name ?? "N\A"}}") , openModal()'>{{$i++}}</td>
-                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="Click Here To Edit Record" onclick='getEditData({{$item->id ?? "1"}},"{{$item->device_name ?? "N\A"}}") , openModal()'>{{$item->Brand->name ?? 'N\A'}}</td>
-                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="Click Here To Edit Record" onclick='getEditData({{$item->id ?? "1"}},"{{$item->device_name ?? "N\A"}}") , openModal()'>{{$item->device_name ?? 'N\A'}}</td>
+                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->device_name ?? "N\A"}}") , openModal()'>{{$i++}}</td>
+                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->device_name ?? "N\A"}}") , openModal()'>{{$item->Brand->name ?? 'N\A'}}</td>
+                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->device_name ?? "N\A"}}") , openModal()'>{{$item->device_name ?? 'N\A'}}</td>
                                             <td>
                                                  <button type="button" onclick='getDeleteId({{$item->id ?? "1"}})' class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteBrand"><i class="fa fa-trash"></i></button>
                                             </td>
@@ -99,14 +99,14 @@
     </div>
 
 
-    <button type="button" class="btn btn-primary mb-2" style="visibility: hidden" id="editBtn" data-bs-toggle="modal" data-bs-target="#editBrand">Edit</button>
+    <button type="button" class="btn btn-primary mb-2" style="visibility: hidden" id="editBtn" data-bs-toggle="modal" data-bs-target="#editBrand">{{__('trans.edit')}}</button>
     
     <!--Edit Device Modal -->
     <div class="modal fade" id="editBrand">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit Device</h5>
+                    <h5 class="modal-title">{{__('trans.edit')}} {{__('trans.devices')}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -115,7 +115,7 @@
                     <div class="modal-body">
                         
                             <div class="form-group">
-                                <label class="form-label fw-bold">Device Name</label>
+                                <label class="form-label fw-bold">{{__('trans.devices')}} {{__('trans.name')}}</label>
                                 <input type="hidden" readonly name="id" id="srId">
                                 <input type="text" name="device_name" placeholder="Device Name" id="name" class="form-control" value="{{old('device_name')}}">
                                 @error('device_name')
@@ -124,8 +124,8 @@
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">{{__('trans.close')}}</button>
+                        <button type="submit" class="btn btn-primary">{{__('trans.update')}}</button>
                     </div>
                  </form>
 
@@ -138,22 +138,22 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Delete Device</h5>
+                    <h5 class="modal-title">{{__('trans.delete')}} {{__('trans.devices')}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
                 <form action="{{route('devices.destroy')}}" method="POST">
                     @csrf
                     <div class="modal-body text-center">
-                        <h3>Are you Sure!</h3>
-                        <p>You want to delete this record !!</p>
+                        <h3>{{__('trans.are_you_sure')}}!</h3>
+                        <p>{{__('trans.you_want_to_delete_this_record')}} !!</p>
                         <div class="form-group">
                             <input type="hidden" readonly name="id" id="srDeleteId">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Yes, I want</button>
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">{{__('trans.close')}}</button>
+                        <button type="submit" class="btn btn-success">{{__('trans.yes_i_want')}}</button>
                     </div>
                  </form>
 
@@ -196,7 +196,7 @@
                     success:function(response){
                         if(response.status == 200) {
                             $(".loaders-container").hide();
-                            toastr.success(response.message, "Top Right", {
+                            toastr.success(response.message, "@if(app()->getLocale() == 'en') Success! @else کامیابی! @endif", {
                                 positionClass: "toast-top-right",
                                 timeOut: 5e3,
                                 closeButton: !0,
@@ -217,7 +217,7 @@
                             document.location.href = "{{route('devices')}}";
                         }else{
                             $(".loaders-container").hide();
-                            toastr.error();(response.message, "Top Right", {
+                            toastr.error();(response.message, "@if(app()->getLocale() == 'en') Error! @else خرابی! @endif", {
                                 positionClass: "toast-top-right",
                                 timeOut: 5e3,
                                 closeButton: !0,
@@ -256,7 +256,7 @@
                     success:function(response){
                         if(response.status == 200) {
                             $(".loaders-container").hide();
-                            toastr.success(response.message, "Top Right", {
+                            toastr.success(response.message, "@if(app()->getLocale() == 'en') Success! @else کامیابی! @endif", {
                                 positionClass: "toast-top-right",
                                 timeOut: 5e3,
                                 closeButton: !0,
@@ -277,7 +277,7 @@
                             document.location.href = "{{route('devices')}}";
                         }else{
                             $(".loaders-container").hide();
-                            toastr.error();(response.message, "Top Right", {
+                            toastr.error();(response.message, "@if(app()->getLocale() == 'en') Error! @else خرابی! @endif", {
                                 positionClass: "toast-top-right",
                                 timeOut: 5e3,
                                 closeButton: !0,

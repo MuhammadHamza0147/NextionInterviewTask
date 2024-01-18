@@ -24,9 +24,9 @@ class BrandController extends Controller
         ]);
 
         if($store){
-            return redirect()->back()->with('success', 'Brand has been added successfully');
+            return redirect()->back()->with('success', trans("trans.add_brand_success"));
         }else{
-            return redirect()->back()->with('error', 'Something went wrong');
+            return redirect()->back()->with('error', trans("trans.error"));
         }
     }
 
@@ -39,18 +39,18 @@ class BrandController extends Controller
 
         $update = Brand::find($request->id)->update($request->all());
         if($update){
-            return redirect()->back()->with('success', 'Brand has been updated successfully');
+            return redirect()->back()->with('success', trans("trans.update_brand_success"));
         }else{
-            return redirect()->back()->with('error', 'Something went wrong');
+            return redirect()->back()->with('error', trans("trans.error"));
         }
     }
 
     public function destroy(Request $request){
         if($request->id){
             $delete = Brand::find($request->id)->delete();
-            return redirect()->back()->with('success', 'Brand has been deleted successfully');
+            return redirect()->back()->with('success', trans("trans.delete_brand_success"));
         }else{
-            return redirect()->back()->with('error', 'Something went wrong'); 
+            return redirect()->back()->with('error', trans("trans.error")); 
         }
     }
 }

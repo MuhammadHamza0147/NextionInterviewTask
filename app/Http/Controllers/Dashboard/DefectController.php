@@ -46,12 +46,12 @@ class DefectController extends Controller
         if($sync){
             return response()->json([
                 'status' => 200,
-                'message' => 'Defects API Sync successfully'
+                'message' => trans("trans.defect_api_success")
             ]);
         }else{
             return response()->json([
                 'status' => 400,
-                'message' => 'Some error occurred while syncing device'
+                'message' => trans("trans.defect_api_error")
             ]);
         }
     }
@@ -63,18 +63,18 @@ class DefectController extends Controller
         ]);
         $update = Defect::find($request->id)->update($request->all());
         if($update){
-            return redirect()->back()->with('success', 'Defect has been updated successfully');
+            return redirect()->back()->with('success', trans("trans.update_defect_success"));
         }else{
-            return redirect()->back()->with('error', 'Something went wrong');
+            return redirect()->back()->with('error', trans("trans.error"));
         }
     }
 
     public function destroy(Request $request){
         if($request->id){
             $delete = Defect::find($request->id)->delete();
-            return redirect()->back()->with('success', 'Defect has been deleted successfully');
+            return redirect()->back()->with('success', trans("trans.delete_defect_success"));
         }else{
-            return redirect()->back()->with('error', 'Something went wrong'); 
+            return redirect()->back()->with('error', trans("trans.error")); 
         }
     }
 
@@ -107,12 +107,12 @@ class DefectController extends Controller
         if($store){
             return response()->json([
                'status' => 200,
-               'message' => 'Defects API Sync successfully'
+               'message' => trans("trans.defect_api_success")
             ]);
         }else{
             return response()->json([
               'status' => 400,
-              'message' => 'Some error occurred while syncing defects'
+              'message' => trans("trans.defect_api_error")
             ]);
         }
     }

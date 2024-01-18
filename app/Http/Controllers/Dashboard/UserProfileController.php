@@ -48,9 +48,9 @@ class UserProfileController extends Controller
         ]);
 
         if($store){
-            return redirect()->route('user.profile')->with('success', 'Profile Updated Successfully');
+            return redirect()->route('user.profile')->with('success', '{{__("trans.add_profile_success")}}');
         }else{
-            return redirect()->back()->with('fail', 'Something went wrong');
+            return redirect()->back()->with('fail', trans("trans.error"));
         }
         
     }
@@ -97,9 +97,9 @@ class UserProfileController extends Controller
         }
 
         if($update){
-            return redirect()->route('user.profile')->with('success', 'Profile Updated Successfully');
+            return redirect()->route('user.profile')->with('success', '{{__("trans.update_profile")}}');
         }else{
-            return redirect()->back()->with('fail', 'Something went wrong');
+            return redirect()->back()->with('fail', trans("trans.error"));
         }
     }
 }

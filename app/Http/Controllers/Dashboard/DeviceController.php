@@ -42,12 +42,12 @@ class DeviceController extends Controller
         if($sync){
             return response()->json([
                 'status' => 200,
-                'message' => 'Device API Sync successfully'
+                'message' => trans("trans.device_api_success")
             ]);
         }else{
             return response()->json([
                 'status' => 400,
-                'message' => 'Some error occurred while syncing device'
+                'message' => trans("trans.device_api_error")
             ]);
         }
     }
@@ -60,18 +60,18 @@ class DeviceController extends Controller
         ]);
         $update = Device::find($request->id)->update($request->all());
         if($update){
-            return redirect()->back()->with('success', 'Device has been updated successfully');
+            return redirect()->back()->with('success', trans("trans.update_device_success"));
         }else{
-            return redirect()->back()->with('error', 'Something went wrong');
+            return redirect()->back()->with('error', trans("trans.error"));
         }
     }
 
     public function destroy(Request $request){
         if($request->id){
             $delete = Device::find($request->id)->delete();
-            return redirect()->back()->with('success', 'Device has been deleted successfully');
+            return redirect()->back()->with('success', trans("trans.delete_device_success"));
         }else{
-            return redirect()->back()->with('error', 'Something went wrong'); 
+            return redirect()->back()->with('error', trans("trans.error")); 
         }
     }
 
@@ -100,12 +100,12 @@ class DeviceController extends Controller
         if($store){
             return response()->json([
                'status' => 200,
-               'message' => 'Defects API Sync successfully'
+               'message' => trans("trans.device_api_success")
             ]);
         }else{
             return response()->json([
               'status' => 400,
-              'message' => 'Some error occurred while syncing defects'
+              'message' => trans("trans.device_api_error")
             ]);
         }
     }

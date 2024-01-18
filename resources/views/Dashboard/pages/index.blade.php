@@ -1,13 +1,13 @@
 @extends('Dashboard.layout.index')
 @section('head')
-    <title>Dashboard</title>
+    <title>{{__('trans.dashboard')}}</title>
 @endsection
 @section('content')
 <div class="container-fluid">
     <div class="row page-titles">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active"><a href="javascript:void(0)">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">{{__('trans.dashboard')}}</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">{{__('trans.home')}}</a></li>
         </ol>
     </div>
     @include('Dashboard.component.alert')
@@ -25,7 +25,7 @@
                                                 <h2 class="mb-0">{{number_format($totalBrands)}}</h2>
                                                 <span class="text-success ms-3">+0.5 %</span>
                                             </div>
-                                            <span class="fs-14 d-block mb-2">Total Active Brands</span>
+                                            <span class="fs-14 d-block mb-2">{{__('trans.total')}} {{__('trans.active')}} {{__('trans.brand')}}</span>
                                         </div>
                                         <div id="NewCustomers"></div>
                                     </div>
@@ -36,7 +36,7 @@
                                             <div class="d-flex align-items-center mb-1">
                                                 <h2 class="mb-0">{{number_format($totalDevices)}}</h2>
                                             </div>
-                                            <span class="fs-14 d-block mb-2">Total Devices</span>
+                                            <span class="fs-14 d-block mb-2">{{__('trans.total')}} {{__('trans.devices')}}</span>
                                         </div>
                                         <div id="NewCustomers1"></div>
                                     </div>
@@ -48,7 +48,7 @@
                                                 <h2 class="mb-0">{{number_format($totalDefects)}}</h2>
                                                 <span class="text-danger ms-3">-2 % </span>
                                             </div>
-                                            <span class="fs-14 d-block mb-2">Total Defects</span>
+                                            <span class="fs-14 d-block mb-2">{{__('trans.total')}} {{__('trans.defects')}}</span>
                                         </div>
                                         <div id="NewCustomers2"></div>
                                     </div>
@@ -59,7 +59,7 @@
                                             <div class="d-flex align-items-center mb-1">
                                                 <h2 class="mb-0">{{number_format($totalUser)}}</h2>
                                             </div>
-                                            <span class="fs-14 d-block mb-2">Total Active User</span>
+                                            <span class="fs-14 d-block mb-2">{{__('trans.total')}} {{__('trans.active')}} {{__('trans.users')}}</span>
                                         </div>
                                         <div id="NewCustomers3"></div>
                                     </div>
@@ -101,10 +101,10 @@
                             <div class="row align-items-center">
                                 <div class="row mt-2 mb-2">
                                     <div class="col-md-8">
-                                        <h4 class="fs-20 mb-3">Skills</h4>
+                                        <h4 class="fs-20 mb-3">{{__('trans.skills')}}</h4>
                                     </div>
                                     <div class="col-md-4 text-right">
-                                        <a href="{{route('user.profile')}}" class="btn btn-primary">Profile</a>
+                                        <a href="{{route('user.profile')}}" class="btn btn-primary">{{__('trans.profile')}}</a>
                                     </div>
                                 </div>
                                 <div class="profile-skills mb-2">
@@ -121,17 +121,17 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">All Devices</h4>
+                    <h4 class="card-title">{{__('trans.all')}} {{__('trans.devices')}}</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example4" class="display table table-sm" style="min-width: 845px">
                             <thead>
                                 <tr>
-                                    <th>Sr#</th>
-                                    <th>Brand Name</th>
-                                    <th>Device Name</th>
-                                    <th>Status</th>
+                                    <th>{{__('trans.sr#')}}</th>
+                                    <th>{{__('trans.brand')}} {{__('trans.name')}}</th>
+                                    <th>{{__('trans.devices')}} {{__('trans.name')}}</th>
+                                    <th>{{__('trans.status')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -143,9 +143,9 @@
                                     <td class="text-uppercase">{{$val->device_name ?? 'N\A'}}</td>
                                     <td class="text-uppercase">
                                         @if (isset($val->Brand->status) && $val->Brand->status == 'active')
-                                            <span class="badge light badge-success">Active</span>   
+                                            <span class="badge light badge-success">{{__('trans.active')}}</span>   
                                         @else
-                                            <span class="badge light badge-danger">In-active</span>
+                                            <span class="badge light badge-danger">{{__('trans.in_active')}}</span>
                                         @endif
                                     </td>
                                 </tr>
