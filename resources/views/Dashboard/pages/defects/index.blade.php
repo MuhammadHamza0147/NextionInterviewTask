@@ -83,11 +83,11 @@
                                 @if(isset($defects))
                                     @foreach ($defects as $item)
                                         <tr>
-                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->defect_name ?? "N\A"}}") , openModal()'>{{$i++}}</td>
-                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->defect_name ?? "N\A"}}") , openModal()'>{{$item->Device->device_name ?? 'N\A'}}</td>
-                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->defect_name ?? "N\A"}}") , openModal()'>{{$item->defect_name ?? 'N\A'}}</td>
-                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->defect_name ?? "N\A"}}") , openModal()'>${{round($item->original_price ,2) ?? 'N\A'}}</td>
-                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->defect_name ?? "N\A"}}") , openModal()'>{{round($item->defect_precentage , 2) ?? 'N\A'}}%</td>
+                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->defect_name ?? "N\A"}}","{{$item->original_price ?? "0"}}","{{$item->defect_precentage ?? "0"}}") , openModal()'>{{$i++}}</td>
+                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->defect_name ?? "N\A"}}","{{$item->original_price ?? "0"}}","{{$item->defect_precentage ?? "0"}}") , openModal()'>{{$item->Device->device_name ?? 'N\A'}}</td>
+                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->defect_name ?? "N\A"}}","{{$item->original_price ?? "0"}}","{{$item->defect_precentage ?? "0"}}") , openModal()'>{{$item->defect_name ?? 'N\A'}}</td>
+                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->defect_name ?? "N\A"}}","{{$item->original_price ?? "0"}}","{{$item->defect_precentage ?? "0"}}") , openModal()'>${{round($item->original_price ,2) ?? 'N\A'}}</td>
+                                            <td data-toggle="tooltip" data-placement="top"  style="cursor: pointer" title="{{__('trans.click_here_to_edit_record')}}" onclick='getEditData({{$item->id ?? "1"}},"{{$item->defect_name ?? "N\A"}}","{{$item->original_price ?? "0"}}","{{$item->defect_precentage ?? "0"}}") , openModal()'>{{round($item->defect_precentage , 2) ?? 'N\A'}}%</td>
                                             <td>
                                                  <button type="button" onclick='getDeleteId({{$item->id ?? "1"}})' class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteBrand"><i class="fa fa-trash"></i></button>
                                             </td>
@@ -118,14 +118,28 @@
                     @csrf
                     <div class="modal-body">
                         
-                            <div class="form-group">
-                                <label class="form-label fw-bold">{{__('trans.devices')}} {{__('trans.name')}}</label>
-                                <input type="hidden" readonly name="id" id="srId">
-                                <input type="text" name="defect_name" placeholder="Defect Name" id="name" class="form-control" value="{{old('defect_name')}}">
-                                @error('defect_name')
-                                    <span class="text-danger">{{$message}}</span>
-                                @enderror
-                            </div>
+                        <div class="form-group">
+                            <label class="form-label fw-bold">{{__('trans.defects')}} {{__('trans.name')}}</label>
+                            <input type="hidden" readonly name="id" id="srId">
+                            <input type="text" name="defect_name" placeholder="Defect Name" id="name" class="form-control" value="{{old('defect_name')}}">
+                            @error('defect_name')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label fw-bold">Orginal Price</label>
+                            <input type="text" name="original_price" placeholder="Defect Price" id="price" class="form-control" value="{{old('original_price')}}">
+                            @error('original_price')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label fw-bold">Percentage %</label>
+                            <input type="text" name="defect_precentage" placeholder="Defect Percentage %" id="percentage" class="form-control" value="{{old('defect_precentage')}}">
+                            @error('defect_precentage')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">{{__('trans.close')}}</button>
@@ -170,9 +184,11 @@
 @section('script')
     <script>
         
-        function getEditData(id , name){
+        function getEditData(id , name , price , percentage){
             $('#srId').val(id);
             $('#name').val(name);
+            $('#price').val(price);
+            $('#percentage').val(percentage);
         }
         
         function openModal(){
